@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "targetAPI": "url/to/send/regi-data/to"
+  },
+  "layout": "standard",
+  "blocks": [
+    {
+      "name": "legitimation",
+      "label": "Legitimierung",
+      "type": "legitimation"
+    },
+    {
+      "name": "personalData",
+      "label": "Persönliche Daten",
+      "type": "formData",
+      "groups": [
+        {
+          "name": "personalData_recipient",
+          "label": "Empfänger",
+          "rows": [
+            {
+              "controls": [
+                {
+                  "name": "salutation",
+                  "label": "Anrede",
+                  "value": "",
+                  "type": "select",
+                  "options": [
+                    {"label": "", "value": ""},
+                    {"label": "Herr", "value": "Herr"},
+                    {"label": "Frau", "value": "Frau"}
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Titel",
+                  "value": "",
+                  "type": "select",
+                  "options": [
+                    {"label": "", "value": ""},
+                    {"label": "Dr.", "value": "Dr."},
+                    {"label": "Dr. med.", "value": "Dr. med."},
+                    {"label": "Dr. Dr.", "value": "Dr. Dr."},
+                    {"label": "Dr. Dr. med.", "value": "Dr. Dr. med."},
+                    {"label": "Graf", "value": "Graf"},
+                    {"label": "König", "value": "König"}
+                  ],
+                  "validation": {
+                    "required": true,
+                    "requiredMessage": "Dieses Feld ist Pflicht!"
+                  }
+                }
+              ]
+            },
+            {
+              "controls": [
+                {
+                  "name": "first_name",
+                  "label": "Vorname",
+                  "value": "",
+                  "type": "text",
+                  "validation": {
+                    "required": true,
+                    "requiredMessage": "Dieses Feld ist Pflicht!",
+                    "minLength": 2,
+                    "minLengthMessage": "Mindestens 2 Zeichen!",
+                    "maxLength": 8,
+                    "maxLengthMessage": "Maximal 8 Zeichen!"
+                  },
+                  "styles": {
+                    "col": 3
+                  }
+                },
+                {
+                  "name": "last_name",
+                  "label": "Nachname",
+                  "value": "",
+                  "type": "text",
+                  "validation": {
+                    "required": true,
+                    "requiredMessage": "Dieses Feld ist Pflicht!",
+                    "minLength": 2,
+                    "minLengthMessage": "Mindestens 2 Zeichen!",
+                    "maxLength": 8,
+                    "maxLengthMessage": "Maximal 8 Zeichen!"
+                  },
+                  "styles": {
+                    "col": 1
+                  }
+                }
+              ]
+            },
+            {
+              "controls": [
+                {
+                  "name": "email_1",
+                  "label": "Email 1",
+                  "value": "",
+                  "type": "email",
+                  "validation": {
+                    "required": true,
+                    "requiredMessage": "Dieses Feld ist Pflicht!",
+                    "patternMessage": "Bitte gültige Email-Adresse angeben!"
+                  }
+                },
+                {
+                  "name": "email_confirmation",
+                  "label": "Email Bestätigung",
+                  "value": "",
+                  "type": "email-confirmation",
+                  "validation": {
+                    "required": true,
+                    "requiredMessage": "Bitte bestätigen Sie Ihre Email!",
+                    "equalityMessage": "Die Adressen stimmen nicht überein!"
+                  },
+                  "fields": [
+                    {
+                      "name": "email_2",
+                      "label": "Email 2",
+                      "value": "",
+                      "type": "email",
+                      "validation": {
+                        "required": true,
+                        "requiredMessage": "Dieses Feld ist Pflicht!",
+                        "patternMessage": "Bitte gültige Email-Adresse angeben!"
+                      }
+                    },
+                    {
+                      "name": "email_3",
+                      "label": "Email 2 Bestätigung",
+                      "value": "",
+                      "type": "email",
+                      "validation": {
+                        "required": true,
+                        "requiredMessage": "Dieses Feld ist Pflicht!",
+                        "patternMessage": "Bitte gültige Email-Adresse angeben!"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "personalData_company",
+          "label": "Firma",
+          "rows": [
+            {
+              "controls": [
+                {
+                  "name": "company_name",
+                  "label": "Firmenname",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "name": "company_postalcode",
+                  "label": "PLZ",
+                  "value": "",
+                  "type": "number",
+                  "validation": {
+                    "minLength": 5,
+                    "minLengthMessage": "Mindestens 5 Ziffern!",
+                    "maxLength": 5,
+                    "maxLengthMessage": "Maximal 5 Ziffern!",
+                    "required": true,
+                    "requiredMessage": "Dieses Feld ist Pflicht!"
+                  },
+                  "autosuggest": {
+                    "serviceUrl": "http://elastic.dev.dimedis.de/regina/postalcode/_search?",
+                    "queryString": "postalCode",
+                    "dataToFetch": [
+                      "postalCode",
+                      "city",
+                      "countryCode",
+                      "country",
+                      "state",
+                      "stateCode",
+                      "province",
+                      "provinceCode",
+                      "community",
+                      "communityCode"
+                    ],
+                    "maxItems": 10,
+                    "minInput": null,
+                    "uiTemplate": {
+                      "singleValueTemplate": true,
+                      "addressTemplate": false
+                    }
+                  },
+                  "autocomplete": {
+                    "company_city": "city",
+                    "company_country": "countryCode",
+                    "company_region": "state"
+                  }
+                },
+                {
+                  "name": "company_city",
+                  "label": "Ort",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "name": "company_region",
+                  "label": "Region",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "name": "company_country",
+                  "label": "Land",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "name": "company_street",
+                  "label": "Straße",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "name": "company_street_number",
+                  "label": "Hausnummer",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "name": "company_area_code_phone",
+                  "label": "Ländervorwahl",
+                  "value": "",
+                  "type": "select",
+                  "options": [
+                    {"label": "", "value": ""},
+                    {"label": "+49", "value": "Deutschland"},
+                    {"label": "+1 242", "value": "Bahamas"},
+                    {"label": "+299", "value": "Grönland"},
+                    {"label": "+64", "value": "Neuseeland"}
+                  ]
+                },
+                {
+                  "name": "company_phone",
+                  "label": "Telefonnummer",
+                  "value": "",
+                  "type": "number"
+                },
+                {
+                  "name": "company_area_code_fax",
+                  "label": "Ländervorwahl",
+                  "value": "",
+                  "type": "select",
+                  "options": [
+                    {"label": "", "value": ""},
+                    {"label": "+49", "value": "Deutschland"},
+                    {"label": "+1 242", "value": "Bahamas"},
+                    {"label": "+299", "value": "Grönland"},
+                    {"label": "+64", "value": "Neuseeland"}
+                  ]
+                },
+                {
+                  "name": "company_fax",
+                  "label": "Faxnummer",
+                  "value": "",
+                  "type": "number"
+                },
+                {
+                  "name": "company_website",
+                  "label": "Website",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "companyInfo",
+      "label": "Ihr Unternehmen",
+      "type": "formData",
+      "groups": [
+        {
+          "name": "companyInfo_company",
+          "label": "Informationen zu Ihrem Unternehmen",
+          "rows": [
+            {
+              "controls": [
+                {
+                  "name": "name_of_branch",
+                  "label": "In welcher Branche sind Sie tätig?",
+                  "type": "accordion",
+                  "data": [
+                    {
+                      "label": "Metall",
+                      "selected": false
+                    },
+                    {
+                      "label": "Gesundheit",
+                      "selected": false
+                    }
+                  ]
+                },
+                {
+                  "name": "target_market",
+                  "label": "Ihr Ziel- und Absatzmarkt",
+                  "type": "accordion",
+                  "data": [
+                    {
+                      "label": "USA",
+                      "selected": false
+                    },
+                    {
+                      "label": "Europa",
+                      "selected": false
+                    }
+                  ]
+                },
+                {
+                  "name": "count_employees",
+                  "label": "Anzahl der Mitarbeiter",
+                  "type": "radio",
+                  "value": "",
+                  "layoutIsCheckbox": true,
+                  "options": [
+                    { "label": "1-5", "value": "xs" },
+                    { "label": "6-10", "value": "s" },
+                    { "label": "11-100", "value": "m" },
+                    { "label": "101-500", "value": "l" },
+                    { "label": "500+", "value": "xl" }
+                  ],
+                  "validation": {
+                    "required": true,
+                    "requiredMessage": "Pflicht ;)"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "personalInterests",
+      "label": "Ihre Interessen",
+      "type": "formData",
+      "groups": [
+        {
+          "name": "personalInterests_interests",
+          "label": "Wollen Sie Ihre Interessen angeben?",
+          "rows": [
+            {
+              "controls": [
+                {
+                  "name": "activate_interests",
+                  "label": "",
+                  "value": "",
+                  "type": "radio",
+                  "options": [
+                    { "label": "Ja, ich möchte meine Interessen angeben", "value": true },
+                    { "label": "Nein, ich möchte meine Interessen nicht angeben", "value": false }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "personalInterests_typeOfInterests",
+          "label": "Wofür interessieren Sie sich?",
+          "rows": [
+            {
+              "controls": [
+                {
+                  "name": "interest_trend",
+                  "label": "Welche Trendthemen finden Sie interessant?",
+                  "type": "accordion",
+                  "data": [
+                    {
+                      "label": "Mode",
+                      "selected": false
+                    },
+                    {
+                      "label": "Musik",
+                      "selected": false,
+                      "data": [
+                        {
+                          "label": "Black Music",
+                          "selected": false,
+                          "data": [
+                            {
+                              "label": "Rap",
+                              "selected": false
+                            },
+                            {
+                              "label": "Soul",
+                              "selected": false
+                            },
+                            {
+                              "label": "RnB",
+                              "selected": false
+                            },
+                            {
+                              "label": "Blues",
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "label": "Rock",
+                          "selected": false
+                        },
+                        {
+                          "label": "Pop",
+                          "selected": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "interest_products",
+                  "label": "Welche Produkte finden Sie interessant?",
+                  "type": "accordion",
+                  "data": [
+                    {
+                      "label": "Feinkoast, Gourmet und Grundnahrungsmittel",
+                      "selected": false
+                    },
+                    {
+                      "label": "Tiefkühlkost und Eiskrem-Erzeugnisse",
+                      "selected": false,
+                      "data": [
+                        {
+                          "label": "Tiefgefrohrenes Obst und Gemüse",
+                          "selected": false
+                        },
+                        {
+                          "label": "tiefgefrorenes Fleisch",
+                          "selected": false
+                        },
+                        {
+                          "label": "Tiefgefrorene Meeresfrüchte und Fisch",
+                          "selected": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "dependencies": {
+            "activate_interests": [true]
+          }
+        }
+      ]
+    },
+    {
+      "name": "confirmation",
+      "label": "Bestätigung",
+      "type": "confirmation"
+    }
+  ]
+}

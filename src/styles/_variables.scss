@@ -1,0 +1,91 @@
+/* COLORS */
+  $color-mine-shaft: #333333;
+  $color-dove-gray: #666666;
+  $color-dusty-gray: #999999;
+  $color-silver-chalice: #adadad;
+  $color-silver: #cccccc;
+  $color-mercury: #e6e6e6;
+  $color-seashell: #f1f1f1;
+  $color-alabaster: #fafafa;
+  $color-white: #fff;
+  $color-fern: #5cb85c;
+  $color-apple: #449d44;
+  $color-fruit-salad: #4cae4c;
+  $color-goblin: #398439;
+  $color-roman: #d9534f;
+  $color-persian-red: #c9302c;
+  $color-mexican-red: #ac2925;
+  $color-valencia: #d43f3a;
+  $color-bay-of-many: #204d74;
+  $color-st-tropaz: #286090;
+  $color-azure: #2e6da4;
+  $color-astral: #337ab7;
+
+
+/* FONT */
+  $font-family: "Roboto", sans-serif;
+  $font-base-size: 16px;
+  $font-base-color: $color-mine-shaft;
+  $font-white: $color-white;
+  $forms-color-label: $color-dusty-gray;
+
+/* STATUS */
+  $status-primary: $color-astral;
+  $status-success: $color-fern;
+  $status-error: $color-roman;
+
+/* SPACING */
+  $spacing-base-unit: $font-base-size / 8;
+  $spacing-1: $spacing-base-unit;
+  $spacing-2: $spacing-base-unit * 2;
+  $spacing-4: $spacing-base-unit * 4;
+  $spacing-6: $spacing-base-unit * 6;
+  $spacing-8: $spacing-base-unit * 8;
+  $spacing-10: $spacing-base-unit * 10;
+  $spacing-12: $spacing-base-unit * 12;
+
+/* CARD-DESIGN */
+  $border-radius: 4px;
+  $box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+/* FORMS */
+  $forms-spacing-formGroup-padding: $spacing-8;
+  $forms-spacing-label-initial: $font-base-size*1.2;
+  $forms-spacing-label-slide-up: 0;
+  $input-wrapper-padding: $font-base-size*1.1 0 $spacing-8 0;
+
+/* BUTTONS */
+  $buttons-padding: $spacing-2 $spacing-6;
+
+  // default colors
+  $buttons-default-color: $color-mine-shaft;
+  $buttons-default-bg: $color-white;
+  $buttons-default-bg-hover: $color-mercury;
+  $buttons-default-border: $color-silver-chalice;
+
+  // inactive colors
+  $buttons-inactive-color: $color-dusty-gray;
+  $buttons-inactive-bg: $color-white;
+  $buttons-inactive-bg-hover: $color-white;
+  $buttons-inactive-border: $color-silver-chalice;
+
+  // primary colors
+  $buttons-primary-color: $color-white;
+  $buttons-primary-bg: $status-primary;
+  $buttons-primary-bg-hover: $color-st-tropaz;
+  $buttons-primary-border: $color-azure;
+  $buttons-primary-border-hover: $color-bay-of-many;
+
+  // error colors
+  $buttons-error-color: $font-white;
+  $buttons-error-bg: $status-error;
+  $buttons-error-bg-hover: $color-persian-red;
+  $buttons-error-border: $color-valencia;
+  $buttons-error-border-hover: $color-mexican-red;
+
+  // success colors
+  $buttons-success-color: $font-white;
+  $buttons-success-bg: $status-success;
+  $buttons-success-bg-hover: $color-apple;
+  $buttons-success-border: $color-fruit-salad;
+  $buttons-success-border-hover: $color-goblin;

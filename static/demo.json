@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "api_url": ""
+  },
+  "layout": "standard",
+  "model": {
+    "salutation": null,
+    "title": null,
+    "first_name": null,
+    "last_name": null,
+    "email": null,
+    "company_name": null,
+    "post_code": null
+  },
+  "schema": {
+    "groups": [
+      {
+        "legend": "Empfänger",
+        "fields": [
+          {
+            "type": "select",
+            "label": "Anrede",
+            "id": "salutation",
+            "model": "salutation",
+            "required": true,
+            "placeholder": "Anrede",
+            "selectOptions": {
+              "noneSelectedText": "Bitte wählen",
+              "value": "value",
+              "name": "label"
+            },
+            "values": [
+              {"label": "Frau", "value": "f"},
+              {"label": "Herr", "value": "m"}
+            ]
+          },
+          {
+            "type": "select",
+            "label": "Titel",
+            "id": "title",
+            "model": "title",
+            "placeholder": "Titel",
+            "selectOptions": {
+              "noneSelectedText": " ",
+              "value": "value",
+              "name": "label"
+            },
+            "values": [
+              {"label": "Dr.", "value": "Dr."},
+              {"label": "Dr. med.", "value": "Dr. med."},
+              {"label": "Dr. Dr.", "value": "Dr. Dr."},
+              {"label": "Dr. Dr. med.", "value": "Dr. Dr. med."},
+              {"label": "Graf", "value": "Graf"},
+              {"label": "König", "value": "König"}
+            ]
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "id": "first_name",
+            "model": "first_name",
+            "label": "Vorname",
+            "required": true,
+            "validator": "string"
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "id": "last_name",
+            "model": "last_name",
+            "label": "Nachname",
+            "required": true,
+            "validator": "string"
+          },
+          {
+            "type": "input",
+            "inputType": "email",
+            "label": "E-mail",
+            "id": "email",
+            "model": "email",
+            "placeholder": "E-mail",
+            "validator": "email"
+          },
+          {
+            "type": "input",
+            "inputType": "email",
+            "label": "E-mail (wiederholen)",
+            "id": "email_repeat",
+            "model": "email_repeat",
+            "placeholder": "E-mail",
+            "validator": "email"
+          }
+        ]
+      },
+      {
+        "legend": "Firma",
+        "fields": [
+          {
+            "type": "input",
+            "inputType": "text",
+            "id": "company_name",
+            "model": "company_name",
+            "label": "Firmenname",
+            "required": true,
+            "validator": "string"
+          },
+          {
+            "type": "autosuggest",
+            "id": "post_code",
+            "model": "post_code",
+            "label": "PLZ",
+            "required": true,
+            "validator": "string",
+            "regi-autocomplete": ["city", "region", "country"]
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "id": "city",
+            "model": "city",
+            "label": "Ort",
+            "required": true,
+            "validator": "string"
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "id": "region",
+            "model": "region",
+            "label": "Region",
+            "required": true,
+            "validator": "string"
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "label": "Land",
+            "id": "country",
+            "model": "country",
+            "placeholder": "Land",
+            "validator": "string"
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "label": "Straße",
+            "id": "street",
+            "model": "street",
+            "placeholder": "Straße",
+            "validator": "string"
+          },
+          {
+            "type": "input",
+            "inputType": "text",
+            "label": "Hausnummer",
+            "id": "street_no",
+            "model": "street_no",
+            "placeholder": "Hausnummer",
+            "validator": "number"
+          }
+        ]
+      }
+    ]
+  }
+}
+
